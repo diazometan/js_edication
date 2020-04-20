@@ -1,7 +1,14 @@
-// errors - file error-words-const.js
-
-// Токен: e61fe8d2-a8b7-469e-9421-cb2c95a5cb26
-// Идентификатор группы: cohort9
+import "../style.css";
+import {config} from './config/config';
+import Card from './card/card';
+import CardList from './card/card-list';
+import Api from './api/api';
+import UserInfo from './user/user-info';
+import FormValidator from './validation/form-validator';
+import PopupCard from './popup/popup-card';
+import PopupAvatar from './popup/popup-avatar';
+import PopupProfile from './popup/profile-popup';
+import PopupImage from './popup/popup-image';
 
 const container = document.querySelector('.places-list');
 const errorBlock = document.querySelector('.error-block');
@@ -16,20 +23,18 @@ const refreshButton = document.querySelector('#refresh');
 const editUserAvatar = document.querySelector('#avatar');
 
 const api = new Api({
-    baseUrl: 'https://praktikum.tk/cohort9',
+    baseUrl: config.url,
     headers: {
-        authorization: 'e61fe8d2-a8b7-469e-9421-cb2c95a5cb26',
+        authorization: config.token,
         'Content-Type': 'application/json'
     }
 });
 
 const userInfo = new UserInfo(api);
-const validation = new FormValidator(errors);
+const validation = new FormValidator();
 
 const cardFactory = (cardInfo, api, cardTemplate) => new Card(cardInfo, api, cardTemplate);
 
-// Сделал так, потому что хочу получить id текущего юзера и потом использовать его для проверки,
-// является ли он владельцем карточки.
 userInfo.getUserInfo()
     .then(id => {
         const cardList = new CardList(container, cardFactory, api, id, cardTemplate)
@@ -42,8 +47,7 @@ userInfo.getUserInfo()
 
         profile.style.display = 'flex'; 
     })
-    .catch(err => {
-        console.log(err);
+    .catch(() => {
         errorBlock.style.display = 'flex';
 
         refreshButton.addEventListener('click', () => {

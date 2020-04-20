@@ -1,6 +1,6 @@
-class UserInfo {
+export default class UserInfo {
     constructor(api) {
-        this.id = "";
+        this.id = null;
         this.name = document.querySelector('.user-info__name');
         this.about = document.querySelector('.user-info__job');
         this.avatar = document.querySelector('.user-info__photo');
@@ -12,7 +12,7 @@ class UserInfo {
     }
 
     getUserInfo() {
-        return api.getUserInfo()
+        return this.api.getUserInfo()
             .then(dto => {
                 this.id = dto._id;
                 this.name.textContent = dto.name;
@@ -25,7 +25,7 @@ class UserInfo {
 
     updateUserInfo(newName, newJob, event, popupProfile) {
         popupProfile.submitRender(event);
-        api.editUserInfo({ name: newName, about: newJob })
+        this.api.editUserInfo({ name: newName, about: newJob })
             .then(dto => {
                 this.name.textContent = dto.name;
                 this.about.textContent = dto.about;
@@ -42,7 +42,7 @@ class UserInfo {
 
     updateAvatar(newAvatar, event, avatarProfile) {
         avatarProfile.submitRender(event);
-        api.editUserAvatar({ avatar: newAvatar })
+        this.api.editUserAvatar({ avatar: newAvatar })
             .then(dto => {
                 this.avatar.style.backgroundImage = `url(${dto.avatar})`;
 

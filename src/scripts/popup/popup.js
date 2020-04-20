@@ -1,5 +1,5 @@
 // абстрактный класс
-class Popup {
+export default class Popup {
 	constructor(element, validation) {
 		this.element = element;
 		this.validation = validation;

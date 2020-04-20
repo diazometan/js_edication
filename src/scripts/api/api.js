@@ -1,5 +1,5 @@
 
-class Api {
+export default class Api {
     constructor(options) {
         this.baseUrl = options.baseUrl;
         this.headers = options.headers;
@@ -28,7 +28,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -41,7 +40,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -53,7 +51,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -65,7 +62,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -77,7 +73,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -89,7 +84,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -102,7 +96,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
@@ -115,7 +108,6 @@ class Api {
         })
         .then(res => this.getResponseJson(res))
         .catch((err) => {
-            console.log(err);
             throw err;
         });
     }
