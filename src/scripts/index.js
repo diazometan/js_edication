@@ -22,8 +22,10 @@ const editUserInfoButton = document.querySelector('#edit');
 const refreshButton = document.querySelector('#refresh');
 const editUserAvatar = document.querySelector('#avatar');
 
+const isDev = NODE_ENV === 'development';
+
 const api = new Api({
-    baseUrl: config.url,
+    baseUrl: isDev ? config.devUrl : config.prodUrl,
     headers: {
         authorization: config.token,
         'Content-Type': 'application/json'
