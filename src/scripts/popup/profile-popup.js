@@ -1,4 +1,6 @@
-class PopupProfile extends Popup {
+import Popup from './popup';
+
+export default class PopupProfile extends Popup {
     constructor(element, userInfo, validation) {
         super(element, validation);
 

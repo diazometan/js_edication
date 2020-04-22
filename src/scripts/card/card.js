@@ -1,5 +1,5 @@
 
-class Card {
+export default class Card {
 	constructor(cardInfo, api, cardTemplate) {
 		this.api = api;
 		this.cardInfo = cardInfo;

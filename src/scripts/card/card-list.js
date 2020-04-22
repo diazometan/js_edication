@@ -1,5 +1,6 @@
+import CardInfo from '../dto/cardInfo';
 
-class CardList {
+export default class CardList {
     constructor(container, cardFactory, api, currentUserId, cardTemplate) {
         this.container = container;
         this.cardFactory = cardFactory;

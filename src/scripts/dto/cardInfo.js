@@ -1,4 +1,4 @@
-class CardInfo {
+export default class CardInfo {
     constructor(id, name, link, ownerId, isLiked, likeCount) {
         this.id = id;
         this.name = name;

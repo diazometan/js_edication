@@ -1,12 +1,13 @@
+import {errors} from './error-words-const';
 
-class FormValidator {
-    constructor(errorWords) {
+export default class FormValidator {
+    constructor() {
         this.fieldTypes = {
             TEXT: 'text',
             LINK: 'url'
         };
 
-        this.errors = errorWords;
+        this.errors = errors;
         this.setEventListeners = this.setEventListeners.bind(this);
         this._inputHandler = this._inputHandler.bind(this);
     }
